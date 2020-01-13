@@ -8,10 +8,11 @@
     "build": "tsc"
   },
   "dependencies": {
-
+    "puppeteer": "^2.0.0"
   },
   "devDependencies": {
     "@types/node": "^12.7.4",
+    "@types/puppeteer": "^2.0.0",
     "nodemon": "^1.19.2",
     "prettier": "^1.18.2",
     "ts-node": "^8.3.0",
