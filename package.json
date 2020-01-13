@@ -1,7 +1,7 @@
 {
   "name": "facebook-janitor",
   "version": "0.1.0",
-  "description": "",
+  "description": "Delete your status updates back in '07",
   "scripts": {
     "start": "node dist/index.js",
     "dev": "nodemon --exec ./node_modules/.bin/ts-node -- ./src/index.ts",
