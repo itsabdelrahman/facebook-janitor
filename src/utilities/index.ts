@@ -1,0 +1,1 @@
+export { loadEnvironmentVariables } from './environment';

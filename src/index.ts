@@ -1,6 +1,11 @@
 import puppeteer from 'puppeteer';
+import { loadEnvironmentVariables } from './utilities';
 
 (async () => {
+  /* Load environment variables */
+  loadEnvironmentVariables(['email', 'password']);
+  const { email, password } = process.env;
+
   /* Spawn browser */
   const browser = await puppeteer.launch({
     headless: false,
@@ -16,11 +21,11 @@ import puppeteer from 'puppeteer';
 
   /* Enter email */
   await page.focus('input#email');
-  await page.keyboard.type('', keyboardTypingOptions);
+  await page.keyboard.type(email, keyboardTypingOptions);
 
   /* Enter password */
   await page.focus('input#pass');
-  await page.keyboard.type('', keyboardTypingOptions);
+  await page.keyboard.type(password, keyboardTypingOptions);
 
   /* Submit login form */
   await page.click('label#loginbutton');
