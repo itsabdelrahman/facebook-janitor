@@ -21,11 +21,11 @@ import { loadEnvironmentVariables } from './utilities';
 
   /* Enter email */
   await page.focus('input#email');
-  await page.keyboard.type(email, keyboardTypingOptions);
+  await page.keyboard.type(email);
 
   /* Enter password */
   await page.focus('input#pass');
-  await page.keyboard.type(password, keyboardTypingOptions);
+  await page.keyboard.type(password);
 
   /* Submit login form */
   await page.click('label#loginbutton');
@@ -47,10 +47,15 @@ import { loadEnvironmentVariables } from './utilities';
   await page.click('a._42ft._42fu._4-s1._2agf._4o_4._p._42gx');
   await page.waitFor(2000);
 
+  /* Click on activity log item delete option */
+  const [deleteOptionAnchor] = await page.$x("//a[contains(., 'Delete')]");
+  await deleteOptionAnchor.click();
+  await page.waitFor(1000);
+
+  /* Click on deletion prompt submit button */
+  const [deleteSubmitButton] = await page.$x("//button[contains(., 'Delete')]");
+  await deleteSubmitButton.click();
+
   /* Destroy browser */
   await browser.close();
 })();
-
-const keyboardTypingOptions = {
-  delay: 0,
-};
