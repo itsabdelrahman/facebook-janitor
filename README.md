@@ -14,7 +14,7 @@
 
 ### Prerequisites
 
-- [Node.js](https://nodejs.org/en)
+- [Node.js](https://nodejs.org/en) (`v8.9.0+`)
 - [Yarn](https://yarnpkg.com/en/)
 
 ### Running
