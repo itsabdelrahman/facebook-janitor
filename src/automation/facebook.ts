@@ -1,17 +1,20 @@
 import { Page } from 'puppeteer';
 
+type Credentials = {
+  email: string;
+  password: string;
+};
+
 type ActivityLogFilter = 'POSTS';
 
 /**
  * Logs in the user using given credentials
  */
-export const loginUser = ({
-  email,
-  password,
-}: {
-  email: string;
-  password: string;
-}) => async (page: Page): Promise<void> => {
+export const loginUser = (credentials: Credentials) => async (
+  page: Page,
+): Promise<void> => {
+  const { email, password } = credentials;
+
   /* Enter email */
   await page.focus('input#email');
   await page.keyboard.type(email);
