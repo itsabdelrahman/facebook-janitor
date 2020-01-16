@@ -26,14 +26,13 @@ import {
   ]);
 
   const browser = await launchBrowser({ headless: false });
+  const page = await openNewPage('https://facebook.com')(browser);
 
-  let page = await openNewPage('https://facebook.com')(browser);
-
-  page = await loginUser({ email, password })(page);
-  page = await navigateToProfile(page);
-  page = await navigateToActivityLog(page);
-  page = await selectActivityLogFilter('POSTS')(page);
-  page = await deleteFirstPost(page);
+  await loginUser({ email, password })(page);
+  await navigateToProfile(page);
+  await navigateToActivityLog(page);
+  await selectActivityLogFilter('POSTS')(page);
+  await deleteFirstPost(page);
 
   await closeBrowser(browser);
 })();
