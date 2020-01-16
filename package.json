@@ -9,9 +9,11 @@
   },
   "dependencies": {
     "dotenv": "^8.2.0",
+    "inquirer": "^7.0.3",
     "puppeteer": "^2.0.0"
   },
   "devDependencies": {
+    "@types/inquirer": "^6.5.0",
     "@types/node": "^13.1.6",
     "@types/puppeteer": "^2.0.0",
     "nodemon": "^2.0.2",
