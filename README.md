@@ -14,7 +14,7 @@
 
 ### Prerequisites
 
-- [Node.js](https://nodejs.org/en) `v10.15.3`
+- [Node.js](https://nodejs.org/en)
 - [Yarn](https://yarnpkg.com/en/)
 
 ### Running
