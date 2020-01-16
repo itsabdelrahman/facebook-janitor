@@ -1,3 +1,4 @@
+import inquirer from 'inquirer';
 import {
   launchBrowser,
   openNewPage,
@@ -8,11 +9,21 @@ import {
   deleteFirstPost,
   closeBrowser,
 } from './automation';
-import { loadEnvironmentVariables } from './utilities';
 
 (async () => {
-  loadEnvironmentVariables(['email', 'password']);
-  const { email, password } = process.env;
+  const { email, password } = await inquirer.prompt([
+    {
+      type: 'input',
+      name: 'email',
+      message: 'Enter email:',
+    },
+    {
+      type: 'password',
+      name: 'password',
+      message: 'Enter password:',
+      mask: '*',
+    },
+  ]);
 
   const browser = await launchBrowser({ headless: false });
 
