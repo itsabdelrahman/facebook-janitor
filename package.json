@@ -5,7 +5,8 @@
   "scripts": {
     "start": "node dist/index.js",
     "dev": "nodemon --no-stdin --exec ./node_modules/.bin/ts-node -- ./src/index.ts",
-    "build": "tsc"
+    "build": "tsc",
+    "prepublish": "yarn build"
   },
   "dependencies": {
     "consola": "^2.11.3",
