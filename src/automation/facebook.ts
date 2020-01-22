@@ -1,11 +1,5 @@
 import { Page } from 'puppeteer';
-
-type Credentials = {
-  email: string;
-  password: string;
-};
-
-type ActivityLogFilter = 'POSTS';
+import { Credentials, ActivityLogFilter } from '../types';
 
 /**
  * Logs in the user using given credentials
