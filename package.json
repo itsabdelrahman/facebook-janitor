@@ -8,7 +8,7 @@
     "build": "tsc"
   },
   "dependencies": {
-    "dotenv": "^8.2.0",
+    "consola": "^2.11.3",
     "inquirer": "^7.0.3",
     "puppeteer": "^2.0.0"
   },
@@ -16,6 +16,8 @@
     "@types/inquirer": "^6.5.0",
     "@types/node": "^13.1.6",
     "@types/puppeteer": "^2.0.0",
+    "husky": "^4.0.10",
+    "lint-staged": "^10.0.1",
     "nodemon": "^2.0.2",
     "prettier": "^1.19.1",
     "ts-node": "^8.6.1",
