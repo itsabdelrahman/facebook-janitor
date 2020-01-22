@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import inquirer from 'inquirer';
 import consola from 'consola';
 import deleteFacebookActivities from '.';
