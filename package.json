@@ -30,7 +30,7 @@
     }
   },
   "lint-staged": {
-    "*.{ts,json,css,md}": [
+    "*.{ts,json,md}": [
       "prettier --single-quote --trailing-comma all --write",
       "git add"
     ]
