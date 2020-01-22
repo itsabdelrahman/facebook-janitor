@@ -41,5 +41,24 @@
       "prettier --single-quote --trailing-comma all --write",
       "git add"
     ]
-  }
+  },
+  "author": {
+    "name": "Abdelrahman Abdelhafez",
+    "email": "abdelrahman@maged.rocks",
+    "url": "https://maged.rocks"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/ar-maged/facebook-janitor",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ar-maged/facebook-janitor.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ar-maged/facebook-janitor/issues"
+  },
+  "keywords": [
+    "puppeteer",
+    "web-automation",
+    "facebook"
+  ]
 }
