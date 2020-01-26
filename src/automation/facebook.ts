@@ -24,8 +24,10 @@ export const loginUser = (credentials: Credentials) => async (
   await page.keyboard.type(password);
 
   /* Submit login form */
-  await page.click(selectors.loginSubmitButton);
-  await page.waitForNavigation();
+  await Promise.all([
+    page.waitForNavigation(),
+    page.click(selectors.loginSubmitButton),
+  ]);
 };
 
 /**
