@@ -10,6 +10,12 @@
   </div>
 </div>
 
+## Usage
+
+- `❯ npx facebook-janitor`
+
+_([npx](https://github.com/npm/npx) comes with [npm](https://www.npmjs.com) v5.2+)_
+
 ## Development
 
 ### Prerequisites
@@ -22,10 +28,13 @@
 - `❯ yarn`
 - `❯ yarn dev`
 
+## Related
+
+- [DeleteFB](https://github.com/weskerfoot/DeleteFB) by [Wesley Kerfoot](https://github.com/weskerfoot).
+
 ## Thanks
 
-- [Wesley Kerfoot](https://github.com/weskerfoot), for his [original idea](https://github.com/weskerfoot/DeleteFB).
-- [Mohamed Barhdadi](https://github.com/MohamedBarhdadi), for naming this project.
+- [Mohamed Barhdadi](https://github.com/MohamedBarhdadi), for naming the project.
 
 ## License
 
