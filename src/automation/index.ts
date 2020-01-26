@@ -1,8 +1,13 @@
-export { launchBrowser, closeBrowser, openNewPage } from './generic';
+export {
+  launchBrowser,
+  closeBrowser,
+  openNewPage,
+  reloadPage,
+} from './generic';
 export {
   loginUser,
   navigateToProfile,
   navigateToActivityLog,
   selectActivityLogFilter,
-  deleteFirstPost,
+  deleteLatestPost,
 } from './facebook';

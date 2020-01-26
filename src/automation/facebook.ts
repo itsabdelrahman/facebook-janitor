@@ -75,18 +75,21 @@ export const selectActivityLogFilter = (filter: ActivityLogFilter) => async (
 };
 
 /**
- * Attempts to delete the first post on the Posts Activity Log page
+ * Deletes the latest post on the Posts Activity Log page
  */
-export const deleteFirstPost = async (page: Page): Promise<void> => {
+export const deleteLatestPost = async (page: Page): Promise<void> => {
   const selectors = {
-    optionsButton: 'a._42ft._42fu._4-s1._2agf._4o_4._p._42gx',
+    optionsButton: 'a[aria-label="Edit"]',
     deleteOptionButton: "//a[contains(., 'Delete')]",
     deleteSubmitButton: "//button[contains(., 'Delete')]",
   };
 
   /* Click on activity log item options */
   await page.waitForSelector(selectors.optionsButton);
-  await page.click(selectors.optionsButton);
+  await page.evaluate(
+    selector => document.querySelector(selector).click(),
+    selectors.optionsButton,
+  );
   await page.waitFor(2500);
 
   /* Click on activity log item delete option */

@@ -2,12 +2,12 @@ import consola from 'consola';
 import {
   launchBrowser,
   openNewPage,
+  reloadPage,
   loginUser,
   navigateToProfile,
   navigateToActivityLog,
   selectActivityLogFilter,
-  deleteFirstPost,
-  closeBrowser,
+  deleteLatestPost,
 } from './automation';
 import { Credentials, DeletionOptions } from './types';
 
@@ -40,10 +40,11 @@ const deleteFacebookActivities = (
   consola.info('SELECTING ACTIVITY LOG FILTER...');
   await selectActivityLogFilter('posts')(page);
 
-  consola.info('DELETING FIRST POST...');
-  await deleteFirstPost(page);
-
-  await closeBrowser(browser);
+  while (true) {
+    consola.info('DELETING POST...');
+    await deleteLatestPost(page);
+    await reloadPage(page);
+  }
 };
 
 export default deleteFacebookActivities;
