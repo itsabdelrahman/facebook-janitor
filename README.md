@@ -24,8 +24,8 @@
 
 ## Thanks
 
-* [Wesley Kerfoot](https://github.com/weskerfoot), for his [original project](https://github.com/weskerfoot/DeleteFB).
-* [Mohamed Barhdadi](https://github.com/MohamedBarhdadi), for naming this project.
+- [Wesley Kerfoot](https://github.com/weskerfoot), for his [original idea](https://github.com/weskerfoot/DeleteFB).
+- [Mohamed Barhdadi](https://github.com/MohamedBarhdadi), for naming this project.
 
 ## License
 
