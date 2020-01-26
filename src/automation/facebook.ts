@@ -41,7 +41,7 @@ export const navigateToProfile = async (page: Page): Promise<void> => {
   /* Click on profile button */
   await page.waitForSelector(selectors.profileButton);
   await page.click(selectors.profileButton);
-  await page.waitFor(3000);
+  await page.waitFor(2500);
 };
 
 /**
@@ -56,7 +56,7 @@ export const navigateToActivityLog = async (page: Page): Promise<void> => {
   await page.waitForXPath(selectors.activityLogButton);
   const [activityLogButton] = await page.$x(selectors.activityLogButton);
   await activityLogButton.click();
-  await page.waitFor(3000);
+  await page.waitFor(2500);
 };
 
 /**
@@ -74,7 +74,7 @@ export const selectActivityLogFilter = (filter: ActivityLogFilter) => async (
   /* Select posts activity log */
   await page.waitForSelector(selectors.filterByPostsButton);
   await page.click(selectors.filterByPostsButton);
-  await page.waitFor(2000);
+  await page.waitFor(2500);
 };
 
 /**
@@ -105,6 +105,5 @@ export const deleteLatestPost = async (page: Page): Promise<void> => {
   await page.waitForXPath(selectors.deleteSubmitButton);
   const [deleteSubmitButton] = await page.$x(selectors.deleteSubmitButton);
   await deleteSubmitButton.click();
-
-  await page.waitFor(5000);
+  await page.waitFor(2500);
 };
