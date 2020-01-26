@@ -49,7 +49,8 @@ export const navigateToProfile = async (page: Page): Promise<void> => {
  */
 export const navigateToActivityLog = async (page: Page): Promise<void> => {
   const selectors = {
-    activityLogButton: "//a[contains(., 'Activity log')]",
+    activityLogButton:
+      "//a[contains(., 'Activity log')] | //a[contains(., 'Activity Log')]",
   };
 
   /* Click on activity log button */
