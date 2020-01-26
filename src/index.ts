@@ -1,3 +1,4 @@
+import consola from 'consola';
 import {
   launchBrowser,
   openNewPage,
@@ -9,6 +10,10 @@ import {
   closeBrowser,
 } from './automation';
 import { Credentials, DeletionOptions } from './types';
+
+const defaultDeletionOptions: DeletionOptions = {
+  filters: ['posts'],
+};
 
 const deleteFacebookActivities = (
   deletionOptions: DeletionOptions = defaultDeletionOptions,
@@ -24,16 +29,21 @@ const deleteFacebookActivities = (
   const page = await openNewPage('https://facebook.com')(browser);
 
   await loginUser({ email, password })(page);
+  consola.success('LOGGED IN');
+
   await navigateToProfile(page);
+  consola.success('NAVIGATED TO PROFILE');
+
   await navigateToActivityLog(page);
+  consola.success('NAVIGATED TO ACTIVITY LOG');
+
   await selectActivityLogFilter('posts')(page);
+  consola.success('SELECTED ACTIVITY LOG FILTER');
+
   await deleteFirstPost(page);
+  consola.success('DELETED FIRST POST');
 
   await closeBrowser(browser);
-};
-
-const defaultDeletionOptions: DeletionOptions = {
-  filters: ['posts'],
 };
 
 export default deleteFacebookActivities;
