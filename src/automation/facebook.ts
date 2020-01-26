@@ -35,7 +35,7 @@ export const loginUser = (credentials: Credentials) => async (
  */
 export const navigateToProfile = async (page: Page): Promise<void> => {
   const selectors = {
-    profileButton: '#u_0_a > div:nth-child(1) > div:nth-child(1) > div > a',
+    profileButton: 'a[title="Profile"]',
   };
 
   /* Click on profile button */
@@ -49,12 +49,13 @@ export const navigateToProfile = async (page: Page): Promise<void> => {
  */
 export const navigateToActivityLog = async (page: Page): Promise<void> => {
   const selectors = {
-    activityLogButton: 'a._42ft._4jy0._4jy4._517h._51sy',
+    activityLogButton: "//a[contains(., 'Activity log')]",
   };
 
   /* Click on activity log button */
-  await page.waitForSelector(selectors.activityLogButton);
-  await page.click(selectors.activityLogButton);
+  await page.waitForXPath(selectors.activityLogButton);
+  const [activityLogButton] = await page.$x(selectors.activityLogButton);
+  await activityLogButton.click();
   await page.waitFor(3000);
 };
 
@@ -67,7 +68,7 @@ export const selectActivityLogFilter = (filter: ActivityLogFilter) => async (
   /* TODO: Activate filter argument */
 
   const selectors = {
-    filterByPostsButton: '#navItem_statuscluster > a',
+    filterByPostsButton: 'a[title="Posts"]',
   };
 
   /* Select posts activity log */
