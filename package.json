@@ -1,6 +1,6 @@
 {
   "name": "facebook-janitor",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "description": "Delete your status updates back in '07",
   "main": "dist/index.js",
   "bin": {
