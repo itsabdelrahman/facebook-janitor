@@ -28,20 +28,20 @@ const deleteFacebookActivities = (
   const browser = await launchBrowser({ headless: false });
   const page = await openNewPage('https://facebook.com')(browser);
 
+  consola.success('LOGGING IN...');
   await loginUser({ email, password })(page);
-  consola.success('LOGGED IN');
 
+  consola.success('NAVIGATING TO PROFILE...');
   await navigateToProfile(page);
-  consola.success('NAVIGATED TO PROFILE');
 
+  consola.success('NAVIGATING TO ACTIVITY LOG...');
   await navigateToActivityLog(page);
-  consola.success('NAVIGATED TO ACTIVITY LOG');
 
+  consola.success('SELECTING ACTIVITY LOG FILTER...');
   await selectActivityLogFilter('posts')(page);
-  consola.success('SELECTED ACTIVITY LOG FILTER');
 
+  consola.success('DELETING FIRST POST...');
   await deleteFirstPost(page);
-  consola.success('DELETED FIRST POST');
 
   await closeBrowser(browser);
 };
