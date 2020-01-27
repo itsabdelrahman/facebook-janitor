@@ -10,31 +10,23 @@
   </div>
 </div>
 
+## Description
+
+A command-line tool that automates the deletion of your Facebook posts in a secure way. It spawns a browser instance on your machine, logs into your Facebook, navigates to your activity log, and then proceeds to delete your posts one by one.
+
 ## Usage
 
 - `❯ npx facebook-janitor`
 
 _([npx](https://github.com/npm/npx) comes with [npm](https://www.npmjs.com) v5.2+)_
 
-## Development
-
-### Prerequisites
-
-- [Node.js](https://nodejs.org/en) (`v8.9.0+`)
-- [Yarn](https://yarnpkg.com/en/)
-
-### Running
-
-- `❯ yarn`
-- `❯ yarn dev`
-
 ## Related
 
-- [DeleteFB](https://github.com/weskerfoot/DeleteFB) by [Wesley Kerfoot](https://github.com/weskerfoot).
+- [DeleteFB](https://github.com/weskerfoot/DeleteFB) by [Wesley Kerfoot](https://github.com/weskerfoot)
 
 ## Thanks
 
-- [Mohamed Barhdadi](https://github.com/MohamedBarhdadi), for naming the project.
+- [Mohamed Barhdadi](https://github.com/MohamedBarhdadi), for naming the project
 
 ## License
 
