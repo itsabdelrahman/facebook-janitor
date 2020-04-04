@@ -91,7 +91,7 @@ export const deleteLatestPost = async (page: Page): Promise<void> => {
   /* Click on activity log item options */
   await page.waitForSelector(selectors.optionsButton);
   await page.evaluate(
-    selector => document.querySelector(selector).click(),
+    (selector) => document.querySelector(selector).click(),
     selectors.optionsButton,
   );
   await page.waitFor(2500);
