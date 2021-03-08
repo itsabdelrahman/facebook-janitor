@@ -4,7 +4,6 @@ import {
   openNewPage,
   reloadPage,
   loginUser,
-  navigateToProfile,
   navigateToActivityLog,
   selectActivityLogFilter,
   deleteLatestPost,
@@ -30,9 +29,6 @@ const deleteFacebookActivities = (
 
   consola.info('LOGGING IN...');
   await loginUser({ email, password })(page);
-
-  consola.info('NAVIGATING TO PROFILE...');
-  await navigateToProfile(page);
 
   consola.info('NAVIGATING TO ACTIVITY LOG...');
   await navigateToActivityLog(page);

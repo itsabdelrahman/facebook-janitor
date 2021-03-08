@@ -6,7 +6,6 @@ export {
 } from './generic';
 export {
   loginUser,
-  navigateToProfile,
   navigateToActivityLog,
   selectActivityLogFilter,
   deleteLatestPost,

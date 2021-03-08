@@ -37,27 +37,12 @@ export const loginUser = (credentials: Credentials) => async (
 };
 
 /**
- * Navigates from the Home page to the Profile page
- */
-export const navigateToProfile = async (page: Page): Promise<void> => {
-  /* Navigate to profile page */
-  await page.goto('https://facebook.com/me');
-};
-
-/**
- * Navigates from the Profile page to the Activity Log page
+ * Navigates from the Home page to the Activity Log page
  */
 export const navigateToActivityLog = async (page: Page): Promise<void> => {
-  const selectors = {
-    activityLogButton:
-      "//a[contains(., 'Activity log')] | //a[contains(., 'Activity Log')]",
-  };
-
-  /* Click on activity log button */
-  await page.waitForXPath(selectors.activityLogButton);
-  const [activityLogButton] = await page.$x(selectors.activityLogButton);
-  await activityLogButton.click();
-  await page.waitFor(2500);
+  await page.goto(
+    'https://www.facebook.com/me/allactivity/?entry_point=profile_shortcut',
+  );
 };
 
 /**
