@@ -13,7 +13,13 @@ export const loginUser = (credentials: Credentials) => async (
     emailInput: 'input#email',
     passwordInput: 'input#pass',
     loginSubmitButton: 'button[data-testid="royal_login_button"]',
+    cookiesAcceptButton:
+      'button[data-testid="cookie-policy-dialog-accept-button"]',
   };
+
+  /* Accept cookies */
+  await page.waitForSelector(selectors.cookiesAcceptButton);
+  await page.click(selectors.cookiesAcceptButton);
 
   /* Enter email */
   await page.focus(selectors.emailInput);
