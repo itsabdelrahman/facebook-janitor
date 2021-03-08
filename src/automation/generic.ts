@@ -4,14 +4,17 @@ import puppeteer, { Browser, Page, LaunchOptions } from 'puppeteer';
  * Spawns a browser instance
  */
 export const launchBrowser = async (
-  options: LaunchOptions,
+  options?: LaunchOptions,
 ): Promise<Browser> => {
+  const { headless = false } = { ...options };
+
   const browser = await puppeteer.launch({
     defaultViewport: {
       width: 1200,
       height: 1000,
     },
     args: ['--disable-notifications'],
+    headless,
     ...options,
   });
 

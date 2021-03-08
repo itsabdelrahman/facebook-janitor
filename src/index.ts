@@ -10,21 +10,13 @@ import {
 } from './automation';
 import { Credentials, DeletionOptions } from './types';
 
-const defaultDeletionOptions: DeletionOptions = {
-  filters: ['posts'],
-};
-
-const deleteFacebookActivities = (
-  deletionOptions: DeletionOptions = defaultDeletionOptions,
-) => async (credentials: Credentials): Promise<void> => {
-  const operationalOptions = {
-    ...defaultDeletionOptions,
-    ...deletionOptions,
-  };
-
+const deleteFacebookActivities = (deletionOptions?: DeletionOptions) => async (
+  credentials: Credentials,
+): Promise<void> => {
+  const { filters = ['posts'] } = { ...deletionOptions };
   const { email, password } = credentials;
 
-  const browser = await launchBrowser({ headless: false });
+  const browser = await launchBrowser();
   const page = await openNewPage('https://facebook.com')(browser);
 
   consola.info('LOGGING IN...');

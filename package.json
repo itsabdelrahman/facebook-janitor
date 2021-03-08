@@ -13,20 +13,20 @@
     "prepublish": "yarn build"
   },
   "dependencies": {
-    "consola": "^2.11.3",
-    "inquirer": "^7.0.3",
-    "puppeteer": "^2.0.0"
+    "consola": "^2.15.3",
+    "inquirer": "^8.0.0",
+    "puppeteer": "^8.0.0"
   },
   "devDependencies": {
-    "@types/inquirer": "^6.5.0",
-    "@types/node": "^13.1.6",
-    "@types/puppeteer": "^2.0.0",
+    "@types/inquirer": "^7.3.1",
+    "@types/node": "^14.14.32",
+    "@types/puppeteer": "^5.4.3",
     "husky": "^4.2.3",
-    "lint-staged": "^10.1.1",
-    "nodemon": "^2.0.2",
-    "prettier": "^2.0.2",
-    "ts-node": "^8.8.1",
-    "typescript": "^3.8.3"
+    "lint-staged": "^10.5.4",
+    "nodemon": "^2.0.7",
+    "prettier": "^2.2.1",
+    "ts-node": "^9.1.1",
+    "typescript": "^4.2.3"
   },
   "engines": {
     "node": ">= 8.9.0"
