@@ -12,7 +12,7 @@ export const loginUser = (credentials: Credentials) => async (
   const selectors = {
     emailInput: 'input#email',
     passwordInput: 'input#pass',
-    loginSubmitButton: 'label#loginbutton',
+    loginSubmitButton: 'button[data-testid="royal_login_button"]',
   };
 
   /* Enter email */
