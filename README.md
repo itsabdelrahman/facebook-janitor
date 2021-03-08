@@ -12,7 +12,7 @@
 
 ## Description
 
-A command-line tool that securely automates the deletion of your Facebook posts. It spawns a browser instance on your machine, logs into your Facebook account, navigates to your activity log, and then proceeds to delete your posts one by one.
+A command-line tool that securely automates the deletion of your Facebook posts. It spawns a browser instance on your machine, logs into your Facebook account, navigates to your profile page, and then proceeds to delete your posts one by one.
 
 ## Usage
 
