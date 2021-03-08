@@ -40,14 +40,8 @@ export const loginUser = (credentials: Credentials) => async (
  * Navigates from the Home page to the Profile page
  */
 export const navigateToProfile = async (page: Page): Promise<void> => {
-  const selectors = {
-    profileButton: 'a[title="Profile"]',
-  };
-
-  /* Click on profile button */
-  await page.waitForSelector(selectors.profileButton);
-  await page.click(selectors.profileButton);
-  await page.waitFor(2500);
+  /* Navigate to profile page */
+  await page.goto('https://facebook.com/me');
 };
 
 /**
