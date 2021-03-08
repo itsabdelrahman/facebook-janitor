@@ -1,8 +1,8 @@
 import { Page } from 'puppeteer';
-import { Credentials, ActivityLogFilter } from '../types';
+import { Credentials } from '../types';
 
 /**
- * Logs in the user using given credentials
+ * Logs user in
  */
 export const loginUser = (credentials: Credentials) => async (
   page: Page,
@@ -37,54 +37,44 @@ export const loginUser = (credentials: Credentials) => async (
 };
 
 /**
- * Navigates from the Home page to the Activity Log page
+ * Navigates to profile page
  */
-export const navigateToActivityLog = async (page: Page): Promise<void> => {
-  await page.goto(
-    'https://www.facebook.com/me/allactivity/?entry_point=profile_shortcut',
-  );
+export const navigateToProfilePage = async (page: Page): Promise<void> => {
+  await page.goto('https://www.facebook.com/me');
 };
 
 /**
- * Selects a filter on the Activity Log page
- */
-export const selectActivityLogFilter = (filter: ActivityLogFilter) => async (
-  page: Page,
-): Promise<void> => {
-  /* TODO: Activate filter argument */
-
-  await page.goto(
-    'https://www.facebook.com/me/allactivity?category_key=STATUSCLUSTER&filter_hidden=ALL&filter_privacy=NONE',
-  );
-};
-
-/**
- * Deletes the latest post on the Posts Activity Log page
+ * Deletes latest post on profile page
  */
 export const deleteLatestPost = async (page: Page): Promise<void> => {
   const selectors = {
-    optionsButton: 'a[aria-label="Edit"]',
-    deleteOptionButton: "//a[contains(., 'Delete')]",
-    deleteSubmitButton: "//button[contains(., 'Delete')]",
+    optionsButton: 'div[aria-label="Actions for this post"]',
+    deleteOptionButton: "//span[contains(., 'Move to trash')]",
+    deleteSubmitButton: 'div[aria-label="Move"]',
+    responseToast: "//span[contains(., 'Moving post to your trash')]",
   };
 
-  /* Click on activity log item options */
+  /* Open post options */
   await page.waitForSelector(selectors.optionsButton);
   await page.evaluate(
     (selector) => document.querySelector(selector).click(),
     selectors.optionsButton,
   );
-  await page.waitFor(2500);
+  await page.waitForTimeout(2500);
 
-  /* Click on activity log item delete option */
+  /* Select "Move to trash" option */
   await page.waitForXPath(selectors.deleteOptionButton);
   const [deleteOptionButton] = await page.$x(selectors.deleteOptionButton);
   await deleteOptionButton.click();
-  await page.waitFor(2500);
+  await page.waitForTimeout(2500);
 
-  /* Click on deletion prompt submit button */
-  await page.waitForXPath(selectors.deleteSubmitButton);
-  const [deleteSubmitButton] = await page.$x(selectors.deleteSubmitButton);
-  await deleteSubmitButton.click();
-  await page.waitFor(2500);
+  /* Submit confirmation dialog */
+  await page.waitForSelector(selectors.deleteSubmitButton);
+  await page.evaluate(
+    (selector) => document.querySelector(selector).click(),
+    selectors.deleteSubmitButton,
+  );
+
+  /* Wait for "Moving post to your trash" toast */
+  await page.waitForXPath(selectors.responseToast);
 };

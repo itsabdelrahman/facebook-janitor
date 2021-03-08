@@ -2,37 +2,28 @@ import consola from 'consola';
 import {
   launchBrowser,
   openNewPage,
-  reloadPage,
   loginUser,
-  navigateToActivityLog,
-  selectActivityLogFilter,
+  navigateToProfilePage,
   deleteLatestPost,
 } from './automation';
-import { Credentials, DeletionOptions } from './types';
+import { Credentials } from './types';
 
-const deleteFacebookActivities = (deletionOptions?: DeletionOptions) => async (
+export const deleteFacebookPosts = async (
   credentials: Credentials,
 ): Promise<void> => {
-  const { filters = ['posts'] } = { ...deletionOptions };
   const { email, password } = credentials;
 
   const browser = await launchBrowser();
   const page = await openNewPage('https://facebook.com')(browser);
 
-  consola.info('LOGGING IN...');
+  consola.info('Logging in...');
   await loginUser({ email, password })(page);
 
-  consola.info('NAVIGATING TO ACTIVITY LOG...');
-  await navigateToActivityLog(page);
-
-  consola.info('SELECTING ACTIVITY LOG FILTER...');
-  await selectActivityLogFilter('posts')(page);
+  consola.info('Navigating to profile page...');
+  await navigateToProfilePage(page);
 
   while (true) {
-    consola.info('DELETING POST...');
+    consola.info('Deleting post...');
     await deleteLatestPost(page);
-    await reloadPage(page);
   }
 };
-
-export default deleteFacebookActivities;

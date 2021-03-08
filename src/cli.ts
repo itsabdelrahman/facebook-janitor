@@ -2,7 +2,7 @@
 
 import inquirer from 'inquirer';
 import consola from 'consola';
-import deleteFacebookActivities from '.';
+import { deleteFacebookPosts } from '.';
 
 (async () => {
   const { email, password } = await inquirer.prompt([
@@ -20,7 +20,7 @@ import deleteFacebookActivities from '.';
   ]);
 
   try {
-    await deleteFacebookActivities()({ email, password });
+    await deleteFacebookPosts({ email, password });
   } catch (error) {
     consola.error(error);
     process.exitCode = 1;
