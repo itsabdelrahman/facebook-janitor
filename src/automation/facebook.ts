@@ -53,14 +53,9 @@ export const selectActivityLogFilter = (filter: ActivityLogFilter) => async (
 ): Promise<void> => {
   /* TODO: Activate filter argument */
 
-  const selectors = {
-    filterByPostsButton: 'a[title="Posts"]',
-  };
-
-  /* Select posts activity log */
-  await page.waitForSelector(selectors.filterByPostsButton);
-  await page.click(selectors.filterByPostsButton);
-  await page.waitFor(2500);
+  await page.goto(
+    'https://www.facebook.com/me/allactivity?category_key=STATUSCLUSTER&filter_hidden=ALL&filter_privacy=NONE',
+  );
 };
 
 /**
